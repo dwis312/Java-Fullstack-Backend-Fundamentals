@@ -1,33 +1,60 @@
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        addPerson();
+        List<Person> person = new ArrayList<>();
+        List<Student> murid = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
+        List<Manager> manager = new ArrayList<>();
+        List<Developer> developer = new ArrayList<>();
+
+        person.add(new Person("Nana", 24));
+        person.add(new Person("Budi", 20));
+        person.add(new Person("Ani", 24));
+        person.add(new Person("Joko", 24));
+        person.add(new Person("Udin", 34));
+        person.add(new Person("Lisa", 28));
+
+        System.out.println("----------------------------------------------");
+        System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",
+        "No","Nama","Usia", "Status");
+        System.out.println("----------------------------------------------");
         
-    }
+        for (int i = 0; i < person.size(); i++) {
+            int usia = person.get(i).getAge();
+            String nama = person.get(i).getName();
 
-    private static void addPerson() {
-        List<Person> list = new ArrayList<>();
+            if (usia <= 24) {
+                murid.add(new Student(nama, usia));
 
-        list.add(new Person("Udin", 34));
-        list.add(new Person("Nana", 24));
-        list.add(new Person("Budi", 20));
-        list.add(new Person("Ani", 24));
-        list.add(new Person("Lisa", 28));
-        list.add(new Person("Joko", 24));
+                System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",i+1,nama,usia, "Murid");
+            } else if (usia > 25) {
+                if (usia <= 30) {
+                    manager.add(new Manager(nama, 18000000));   
+                    System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",i+1,nama,usia, "Manger");
+                } else {
+                    developer.add(new Developer(nama, 7000000));   
+                    System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",i+1,nama,usia, "Developer");
 
-        System.out.println("---------------------------------");
-        System.out.printf("| %-5s | %-10s | %-8s |\n",
-        "No","Nama","Usia");
-        System.out.println("---------------------------------");
-
-        for (int i = 0; i < list.size(); i++) {
-            System.out.printf("| %-5s | %-10s | %-8s |\n",
-            i+1,list.get(i).getName(),list.get(i).getAge());
+                }
+            }
         }
-        System.out.println("---------------------------------");
-
+        System.out.println("----------------------------------------------");
+        
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
+        if (manager.isEmpty()) {
+            System.out.println("kosong");
+        } else {
+            for (int j = 0; j < manager.size(); j++) {
+                System.out.println("ID   : " + manager.get(j).getId());
+                System.out.println("Nama : " + manager.get(j).getName());
+                System.out.println("Gaji : " + formatRupiah.format(manager.get(j).getSalary()));
+            }
+        }
     }
+    
 }
