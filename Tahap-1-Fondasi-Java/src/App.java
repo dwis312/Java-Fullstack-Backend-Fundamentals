@@ -11,6 +11,7 @@ public class App {
         List<Employee> employees = new ArrayList<>();
         List<Manager> manager = new ArrayList<>();
         List<Developer> developer = new ArrayList<>();
+        List<Counter> counter = new ArrayList<>();
 
         person.add(new Person("Nana", 24));
         person.add(new Person("Budi", 20));
@@ -24,21 +25,24 @@ public class App {
         "No","Nama","Usia", "Status");
         System.out.println("----------------------------------------------");
         
+
         for (int i = 0; i < person.size(); i++) {
             int usia = person.get(i).getAge();
             String nama = person.get(i).getName();
-
+            
+            counter.add(new Counter());
+            
             if (usia <= 24) {
                 murid.add(new Student(nama, usia));
 
-                System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",i+1,nama,usia, "Murid");
+                System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",Counter.getCount(),nama,usia, "Murid");
             } else if (usia > 25) {
                 if (usia <= 30) {
                     manager.add(new Manager(nama, 18000000));   
-                    System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",i+1,nama,usia, "Manger");
+                    System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",Counter.getCount(),nama,usia, "Manger");
                 } else {
                     developer.add(new Developer(nama, 7000000));   
-                    System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",i+1,nama,usia, "Developer");
+                    System.out.printf("| %-5s | %-10s | %-8s | %-10s |\n",Counter.getCount(),nama,usia, "Developer");
 
                 }
             }
@@ -55,6 +59,10 @@ public class App {
                 System.out.println("Gaji : " + formatRupiah.format(manager.get(j).getSalary()));
             }
         }
+
+        System.out.println();
+        System.out.print("object Counter : ");
+        System.out.println(Counter.getCount());
     }
     
 }
