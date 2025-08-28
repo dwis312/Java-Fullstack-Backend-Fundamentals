@@ -1,4 +1,7 @@
 
+import exceptionhandling.Arithmetic;
+import exceptionhandling.BacaData;
+import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,10 +62,24 @@ public class App {
                 System.out.println("Gaji : " + formatRupiah.format(manager.get(j).getSalary()));
             }
         }
+        System.out.println("----------------------------------------------");
 
         System.out.println();
         System.out.print("object Counter : ");
         System.out.println(Counter.getCount());
+
+        System.out.println("----------------------------------------------");
+        
+        Arithmetic.pembagian();
+        System.out.println();
+        System.out.println("----------------------------------------------");
+        try {
+            BacaData.fileTxt("data/person.txt");
+        } catch (IOException e) {
+            System.out.println("Kesalahan: Terjadi masalah saat membaca file.");
+            System.err.println(e.getMessage());
+        }
+        System.out.println("----------------------------------------------");
     }
     
 }
