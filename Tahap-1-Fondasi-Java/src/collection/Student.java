@@ -1,3 +1,5 @@
+package collection;
+
 import java.util.UUID;
 
 public class Student extends Person implements Printable{
@@ -5,7 +7,7 @@ public class Student extends Person implements Printable{
 
     public Student(String name, int age) {
         super(name, age);
-        this.id = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString().substring(0, 8);
     }
 
     public String getId() {

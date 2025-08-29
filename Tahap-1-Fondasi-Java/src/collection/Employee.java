@@ -1,22 +1,15 @@
-public abstract class Employee {
-    private String name;
+package collection;
+
+public abstract class Employee extends Person {
     private double salary;
 
-    public Employee(String name, double salary) {
-        this.name = name;
+    public Employee(String name, int age, double salary) {
+        super(name, age);
         this.salary = salary;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public double  getSalary() {
         return salary;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setSalary(double salary) {
@@ -26,7 +19,7 @@ public abstract class Employee {
     public abstract void work();
 
     public String toString() {
-        return name + " | " +
+        return super.toString() + " | " +
                salary;
 
     }

@@ -30,9 +30,9 @@ ini adalah perluasan dari blok `catch`. Karena sebuah blok `try` bisa menghasilk
     - `throws` adalah **deklarasi** di tanda tangan sebuah `method` untuk memberitahukan bahwa `method` tersebut mungkin akan **melempar** sebuah `exception`. Ini berfungsi sebagai "peringatan" kepada pemanggil `method` agar siap untuk menangani potensi kesalahan.
 
 - `Checked` vs `Unchecked Exception` : Ini adalah klasifikasi `exception` berdasarkan cara Java memaksanya.
-`Checked Exception` adalah `exception` yang **harus ditangani**. Jika tidak, program tidak akan berhasil dikompilasi. Ini biasanya merupakan kesalahan eksternal yang tidak dapat dihindari oleh program, seperti `IOException` (kesalahan input/output).
+    - `Checked Exception` adalah `exception` yang **harus ditangani**. Jika tidak, program tidak akan berhasil dikompilasi. Ini biasanya merupakan kesalahan eksternal yang tidak dapat dihindari oleh program, seperti `IOException` (kesalahan input/output).
 
-`Unchecked Exception` adalah `exception` yang **tidak harus ditangani**. Ini biasanya menandakan kesalahan logika dalam program (bug), seperti `NullPointerException` (mencoba mengakses objek yang kosong), yang seharusnya bisa dicegah dengan perbaikan kode.
+    - `Unchecked Exception` adalah `exception` yang **tidak harus ditangani**. Ini biasanya menandakan kesalahan logika dalam program (bug), seperti `NullPointerException` (mencoba mengakses objek yang kosong), yang seharusnya bisa dicegah dengan perbaikan kode.
 
 ---
 
