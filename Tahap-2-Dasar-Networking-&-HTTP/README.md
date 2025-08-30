@@ -1,6 +1,5 @@
 # Tahap 2: Dasar Networking & HTTP
-Dasar dari komunikasi dalam jaringan komputer, Dwi, adalah model server-client (peladen-klien).
-Dalam model ini, ada dua peran utama:
+Dasar dari komunikasi dalam jaringan komputer, Dalam model ini, ada dua peran utama:
 - **Server**: Sebuah perangkat atau program yang **menunggu permintaan** (**request**) dan menyediakan layanan atau sumber daya, seperti data, file, atau aplikasi.
 - **Client**: Sebuah perangkat atau program yang **mengirimkan permintaan** ke server untuk mendapatkan layanan atau sumber daya.
 
@@ -231,8 +230,43 @@ curl -v http://localhost:8080
 
 **Struktur HTTP Request & Response**
 - **HTTP Request**
+```http
+GET /about HTTP/1.1
+Host: localhost:8080
+User-Agent: curl/8.5.0
+Accept: text/html
+
+```
+| Bagian      | Contoh                         | Penjelasan                                 |
+| ----------- | ------------------------------ | ------------------------------------------ |
+| **Method**  | `GET`, `POST`, `PUT`, `DELETE` | Aksi yang diminta ke server.               |
+| **Path**    | `/about`                       | Resource yang diminta.                     |
+| **Version** | `HTTP/1.1`                     | Versi protokol HTTP.                       |
+| **Header**  | `Host`, `User-Agent`, dsb.     | Info tambahan (browser, format data, dll). |
+| **Body**    | `{ "data": "value" }`          | Data tambahan (biasanya POST/PUT).         |
+
 
 - **HTTP Response**
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 125
+
+<html>
+  <body>Hello, World!</body>
+</html>
+
+```
+| Bagian          | Contoh                   | Penjelasan                  |
+| --------------- | ------------------------ | --------------------------- |
+| **Status Line** | `HTTP/1.1 200 OK`        | Versi + status code.        |
+| **Header**      | `Content-Type`, `Length` | Informasi konten.           |
+| **Body**        | `<html>...</html>`       | Isi yang dikirim ke client. |
+
+**Status Code Umum**:
+- `200 OK` → Berhasil.
+- `404 Not Found` → Tidak ada resource.
+- `500 Internal Server Error` → Server error.
 
 - **Debugging Networking**
 
@@ -243,7 +277,7 @@ curl -v http://localhost:8080
 
         # Kirim POST dengan data JSON
         curl -X POST -H "Content-Type: application/json" \
-        -d '{"name":"Dwi"}' http://localhost:8080/api
+        -d '{"name":"Bambang"}' http://localhost:8080/api
 
     ```
     Opsi `-v` menampilkan detail header & response.
