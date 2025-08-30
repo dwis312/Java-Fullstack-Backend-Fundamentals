@@ -21,8 +21,7 @@ public class Developer extends Employee {
 
     @Override
     public String toString() {
-        return  super.toString()+ " | " +
-                id;
+        return "Developer|" + id + "|" + getName() + "|" + getAge() + "|" + getSalary();
     }
 
 }

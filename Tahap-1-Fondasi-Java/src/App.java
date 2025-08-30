@@ -6,6 +6,7 @@ import collection.Employee;
 import collection.Manager;
 import collection.Person;
 import collection.Student;
+import helper.Helper;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.InputMismatchException;
@@ -17,6 +18,8 @@ import java.util.Scanner;
 public class App {
     private static Collection collection = new Collection();
     private static Scanner input = new Scanner(System.in);
+    private static Helper helper = new Helper();
+
     public static void main(String[] args) throws Exception {
         int pilihan = -1;
         boolean exit = false;
@@ -123,21 +126,25 @@ public class App {
         System.out.print("Masukan Usia: ");
         usia = inputInt(input);
 
-        if (num == 1) { 
-            collection.getAllPerson().put(nama, new Person(nama, usia)); 
+        collection.getAllPerson().put(nama, new Person(nama, usia));
+
+        if (num == 1) {  
             collection.getAllPekerja().add(new Manager(nama, usia, 12000000));
+    
             System.out.println(nama + " (Manager) berhasil ditambah.");
         } else if (num == 2) {
-            collection.getAllPerson().put(nama, new Person(nama, usia));
             collection.getAllPekerja().add(new Developer(nama, usia, 8000000));
+        
             System.out.println(nama + " (Developer) berhasil ditambah.");
         } else if (num == 3) { 
-            collection.getAllPerson().put(nama, new Person(nama, usia));
             collection.getAllMurid().add(new Student(nama, usia));
+          
             System.out.println(nama + " (Murid) berhasil ditambah.");
         } else {
             System.out.println("Pilihan tidak valid.");
         }
+
+        helper.saveTxt(collection.getAllPerson().values().stream().collect(java.util.ArrayList::new, java.util.ArrayList::add, java.util.ArrayList::addAll));
         
     }
 
@@ -155,6 +162,8 @@ public class App {
 
         collection.generateDataMurid();
         collection.generateDataPekerja();
+
+        helper.saveTxt(collection.getAllPerson().values().stream().collect(java.util.ArrayList::new, java.util.ArrayList::add, java.util.ArrayList::addAll));
     }
 
     private static void getData() {

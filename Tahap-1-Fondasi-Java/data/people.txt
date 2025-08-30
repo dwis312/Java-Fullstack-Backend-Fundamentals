@@ -1,0 +1,9 @@
+Person|Nana|24
+Person|Budi|20
+Person|Jojo|28
+Person|Joko|24
+Person|Nina|24
+Person|Udin|34
+Person|Ani|24
+Person|Broto|43
+Person|Lisa|28

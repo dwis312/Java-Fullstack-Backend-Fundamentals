@@ -21,8 +21,7 @@ public class Manager extends Employee {
 
     @Override
     public String toString() {
-        return  super.toString()+ " | " +
-                id;
+        return "Manager|" + id + "|" + getName() + "|" + getAge() + "|" + getSalary();
     }
 
 }

@@ -20,7 +20,6 @@ public class Student extends Person implements Printable{
 
     @Override
     public String toString() {
-        return  super.toString() + " | " +
-                id;
+        return "Student|" + id + "|" + getName() + "|" + getAge();
     }
 }
